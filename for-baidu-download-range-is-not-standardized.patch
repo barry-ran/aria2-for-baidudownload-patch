@@ -17,7 +17,7 @@ index 500cd64e..3c1d74dc 100644
    case 206: // Partial Content
 +    // for baidu download: range is not standardized
 +    std::string host = httpRequest_->getURIHost();
-+    string::size_type index = host.find("www.baidu");
++    std::string::size_type index = host.find("www.baidu");
 +    if (index != string::npos) {
 +      return;
 +    }
