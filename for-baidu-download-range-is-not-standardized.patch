@@ -1,0 +1,29 @@
+From 059661180ac467f51b98342fcc8021575fb897c5 Mon Sep 17 00:00:00 2001
+From: Barry <870709864@qq.com>
+Date: Mon, 27 May 2019 08:32:57 +0800
+Subject: [PATCH] for baidu download: range is not standardized
+
+---
+ src/HttpResponse.cc | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/src/HttpResponse.cc b/src/HttpResponse.cc
+index 500cd64e..3c1d74dc 100644
+--- a/src/HttpResponse.cc
++++ b/src/HttpResponse.cc
+@@ -74,6 +74,12 @@ void HttpResponse::validateResponse() const
+   switch (statusCode) {
+   case 200: // OK
+   case 206: // Partial Content
++    // for baidu download: range is not standardized
++    std::string host = httpRequest_->getURIHost();
++    string::size_type index = host.find("www.baidu");
++    if (index != string::npos) {
++      return;
++    }
+     if (!httpHeader_->defined(HttpHeader::TRANSFER_ENCODING)) {
+       // compare the received range against the requested range
+       auto responseRange = httpHeader_->getRange();
+-- 
+2.15.0.windows.1
+
