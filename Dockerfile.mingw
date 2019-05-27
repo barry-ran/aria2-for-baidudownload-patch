@@ -36,7 +36,7 @@ RUN curl -L -O https://gmplib.org/download/gmp/gmp-6.1.2.tar.lz && \
     curl -L -O https://www.sqlite.org/2018/sqlite-autoconf-3230100.tar.gz && \
     curl -L -O http://zlib.net/zlib-1.2.11.tar.gz && \
     curl -L -O https://c-ares.haxx.se/download/c-ares-1.14.0.tar.gz && \
-    curl -L -O http://libssh2.org/download/libssh2-1.8.0.tar.gz \
+    curl -L -O http://libssh2.org/download/libssh2-1.8.0.tar.gz && \
     curl -L -O https://raw.githubusercontent.com/barry-ran/aria2-for-baidudownload-patch/master/for-baidu-download-range-is-not-standardized.patch
 ### 上面加了一行，下载patch ###
 
